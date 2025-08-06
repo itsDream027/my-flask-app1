@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <!-- Favicon Links -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/COCONUt THICKNET.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/COCONUt THICKNET.png') }}">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Centering Styles */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        /*======================
+            404 Page Styles
+        =======================*/
+        .page_404 { 
+            padding: 40px 0; 
+            font-family: 'Arvo', serif;
+        }
+
+        .page_404 .container-404 {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .four_zero_four_bg {
+            background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+            height: 500px; /* UPDATED: Increased height */
+            width: 500px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        
+        .four_zero_four_bg h1 {
+            font-size: 120px; /* UPDATED: Increased font size */
+            text-align: center;
+        }
+        
+        .contant_box_404 { 
+            margin-top: -150px;
+        }
+
+        .contant_box_404 h3.h2 {
+            font-size: 2.5em; /* UPDATED: Increased font size */
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contant_box_404 p {
+            font-size: 1.5em; /* UPDATED: Increased font size */
+            font-family: 'Poppins', sans-serif;
+            color: #555;
+        }
+        
+        .link_404 {			
+            color: #fff !important;
+            padding: 16px 32px; /* UPDATED: Increased padding */
+            background: #39ac31;
+            margin: 20px 0;
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.2em; /* UPDATED: Increased font size */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .link_404:hover {
+            background: #2a8c25;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- 404 Page Content -->
+    <section class="page_404">
+        <div class="container-404">
+            <div class="four_zero_four_bg">
+                <h1 class="text-center">404</h1>
+            </div>
+            
+            <div class="contant_box_404">
+                <h3 class="h2">ดูเหมือนว่าคุณจะหลงทาง</h3>
+                <p>หน้าที่คุณกำลังตามหาไม่มีอยู่จริง!</p>
+                <a href="{{ url_for('home') }}" class="link_404">กลับสู่หน้าหลัก</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

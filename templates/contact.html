@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ติดต่อเรา</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- เพิ่ม Font ที่หรูหราขึ้น -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <!-- โลโก้และชื่อแบรนด์ที่คลิกได้ -->
+            <a href="{{ url_for('home') }}" class="brand-link">
+                <img src="{{ url_for('static', filename='images/COCONUt THICKNET.png') }}" alt="Logo" class="navbar-logo">
+                CocoThickness Analyzer
+            </a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </a>
+        <div class="nav-links" id="myLinks">
+            <a href="{{ url_for('home') }}">หน้าหลัก</a>
+            <a href="{{ url_for('analyzer_app') }}">หาความหนาเนื้อมะพร้าว</a>
+            <a href="{{ url_for('about') }}">ที่มาและความสำคัญ</a>
+            <a href="{{ url_for('contact') }}">ติดต่อ</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>ติดต่อเรา</h1>
+        <p>หากมีข้อสงสัย ข้อเสนอแนะ หรือต้องการสอบถามข้อมูลเพิ่มเติมเกี่ยวกับแอปพลิเคชันวิเคราะห์ความหนาของมะพร้าว สามารถติดต่อเราได้ตามช่องทางด้านล่างนี้:</p>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <p>Email: <a href="mailto:contact@coconuthickness.com">67pornchanok.hom@pccphet.ac.th</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <p>โทรศัพท์: <a href="tel:+66123456789">+66 61 626 7396</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-line"></i>
+                <p>LINE ID: @coconuthickness</p>
+            </div>
+            <!-- START Instagrams -->
+            <div class="contact-item">
+                <i class="fab fa-instagram"></i>
+                <p>Instagram 1: <a href="https://www.instagram.com/eveppp.h" target="_blank">@eveppp.h</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-instagram"></i>
+                <p>Instagram 2: <a href="https://www.instagram.com/puxncqz_" target="_blank">@puxncqz_</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-instagram"></i>
+                <p>Instagram 3: <a href="https://www.instagram.com/drx4.mmm_" target="_blank">@drx4.mmm_</a></p>
+            </div>
+            <!-- END Instagrams -->
+        </div>
+
+        <p>เรายินดีให้บริการและตอบทุกคำถามของคุณ!</p>
+    </div>
+
+    <!-- START Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>เกี่ยวกับ CocoThickness Analyzer</h3>
+                <p>แอปพลิเคชันนวัตกรรมเพื่อประเมินความหนาของเนื้อมะพร้าวด้วยเทคโนโลยีประมวลผลภาพ ช่วยลดการสูญเสียและเพิ่มประสิทธิภาพในการคัดแยกผลผลิต</p>
+            </div>
+            <div class="footer-section links">
+                <h3>ลิงก์ด่วน</h3>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">หน้าหลัก</a></li>
+                    <li><a href="{{ url_for('analyzer_app') }}">หาความหนาเนื้อมะพร้าว</a></li>
+                    <li><a href="{{ url_for('about') }}">ที่มาและความสำคัญ</a></li>
+                    <li><a href="{{ url_for('contact') }}">ติดต่อเรา</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact-info-footer">
+                <h3>ติดต่อเรา</h3>
+                <p><i class="fas fa-envelope"></i> contact@coconuthickness.com</p>
+                <p><i class="fas fa-phone-alt"></i> +66 123 456 789</p>
+                <p><i class="fab fa-line"></i> @coconuthickness</p>
+                <!-- START Instagrams -->
+                <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/eveppp.h" target="_blank">@eveppp.h</a></p>
+                <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/puxncqz_" target="_blank">@puxncqz_</a></p>
+                <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/drx4.mmm_" target="_blank">@drx4.mmm_</a></p>
+                <!-- END Instagrams -->
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; {{ now.year }} CocoThickness Analyzer. All rights reserved.
+        </div>
+    </footer>
+    <!-- END Footer Section -->
+
+    <script>
+        function toggleMenu() {
+            var x = document.getElementById("myLinks");
+            if (x.classList.contains("active")) {
+                x.classList.remove("active");
+            } else {
+                x.classList.add("active");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coconut Thickness Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- เพิ่ม Font ที่หรูหราขึ้น -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <!-- โลโก้และชื่อแบรนด์ที่คลิกได้ -->
+            <a href="{{ url_for('home') }}" class="brand-link">
+                <img src="{{ url_for('static', filename='images/COCONUt THICKNET.png') }}" alt="Logo" class="navbar-logo">
+                CocoThickness Analyzer
+            </a>
+        </div>
+        <!-- Hamburger icon for mobile (will be hidden on desktop by CSS) -->
+        <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </a>
+        <!-- Navigation links (will be hidden on mobile by CSS and toggled by JS) -->
+        <div class="nav-links" id="myLinks">
+            <a href="{{ url_for('home') }}">หน้าหลัก</a>
+            <a href="{{ url_for('analyzer_app') }}">หาความหนาเนื้อมะพร้าว</a>
+            <a href="{{ url_for('about') }}">ที่มาและความสำคัญ</a>
+            <a href="{{ url_for('contact') }}">ติดต่อ</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>หาความหนาเนื้อมะพร้าว</h1>
+        <form id="uploadForm" method="post" action="/upload" enctype="multipart/form-data">
+            <!-- START Custom File Input -->
+            <div class="file-input-wrapper">
+                <input type="file" name="file" id="fileUpload" accept="image/*" required>
+                <label for="fileUpload" class="custom-file-button">
+                    <i class="fas fa-upload"></i> เลือกไฟล์รูปภาพ
+                </label>
+                <span id="fileNameDisplay" class="file-name-display">ยังไม่มีไฟล์ที่เลือก</span>
+                <img id="imagePreview" class="image-preview" src="#" alt="Image Preview">
+            </div>
+            <!-- END Custom File Input -->
+
+            <input type="submit" value="Upload and Analyze">
+        </form>
+
+        <!-- MODIFIED: Replaced loader -->
+        <div id="spinnerContainer" class="spinner-container">
+            <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
+                <div class="wheel"></div>
+                <div class="hamster">
+                    <div class="hamster__body">
+                        <div class="hamster__head">
+                            <div class="hamster__ear"></div>
+                            <div class="hamster__eye"></div>
+                            <div class="hamster__nose"></div>
+                        </div>
+                        <div class="hamster__limb hamster__limb--fr"></div>
+                        <div class="hamster__limb hamster__limb--fl"></div>
+                        <div class="hamster__limb hamster__limb--br"></div>
+                        <div class="hamster__limb hamster__limb--bl"></div>
+                        <div class="hamster__tail"></div>
+                    </div>
+                </div>
+                <div class="spoke"></div>
+            </div>
+            <p class="processing-text">กำลังประมวลผลภาพมะพร้าว...</p>
+            <p class="percentage-text"><span id="progressPercentage">0</span>%</p>
+        </div>
+
+        {% if results %}
+        <hr>
+        <h2>Analysis Results:</h2>
+        <div class="results-grid">
+            <div class="image-display">
+                <h3>Original Image</h3>
+                <img src="{{ url_for('static', filename='results/' + results.original_image) }}" alt="Original Image">
+            </div>
+
+        </div>
+        <div class="metrics">
+            <h3>Metrics:</h3>
+            <ul>
+                <li><strong>Thickness (mm):</strong> {{ results['Calculated Thickness'] }}</li>
+            </ul>
+        </div>
+        {% endif %}
+
+    </div>
+
+    <!-- START Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>เกี่ยวกับ CocoThickness Analyzer</h3>
+                <p>แอปพลิเคชันนวัตกรรมเพื่อประเมินความหนาของเนื้อมะพร้าวด้วยเทคโนโลยีประมวลผลภาพ ช่วยลดการสูญเสียและเพิ่มประสิทธิภาพในการคัดแยกผลผลิต</p>
+            </div>
+            <div class="footer-section links">
+                <h3>ลิงก์ด่วน</h3>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">หน้าหลัก</a></li>
+                    <li><a href="{{ url_for('analyzer_app') }}">หาความหนาเนื้อมะพร้าว</a></li>
+                    <li><a href="{{ url_for('about') }}">ที่มาและความสำคัญ</a></li>
+                    <li><a href="{{ url_for('contact') }}">ติดต่อเรา</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact-info-footer">
+                <h3>ติดต่อเรา</h3>
+                <p><i class="fas fa-envelope"></i> contact@coconuthickness.com</p>
+                <p><i class="fas fa-phone-alt"></i> +66 123 456 789</p>
+                <p><i class="fab fa-line"></i> @coconuthickness</p>
+                <!-- START Instagrams -->
+                <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/instagram_user1" target="_blank">@instagram_user1</a></p>
+                <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/instagram_user2" target="_blank">@instagram_user2</a></p>
+                <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/instagram_user3" target="_blank">@instagram_user3</a></p>
+                <!-- END Instagrams -->
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; {{ now.year }} CocoThickness Analyzer. All rights reserved.
+        </div>
+    </footer>
+    <!-- END Footer Section -->
+
+    <script>
+        // JavaScript สำหรับ Hamburger Menu (ยังคงจำเป็นสำหรับ Mobile)
+        function toggleMenu() {
+            var x = document.getElementById("myLinks");
+            if (x.classList.contains("active")) {
+                x.classList.remove("active");
+            } else {
+                x.classList.add("active");
+            }
+        }
+
+        // สำหรับหาความหนาเนื้อมะพร้าวเท่านั้น (ถ้าเป็น index.html)
+        document.getElementById('uploadForm').addEventListener('submit', function() {
+            document.getElementById('uploadForm').style.display = 'none';
+            document.getElementById('spinnerContainer').style.display = 'flex';
+
+            // Simulate progress percentage
+            let percentage = 0;
+            const progressElement = document.getElementById('progressPercentage');
+            const interval = setInterval(() => {
+                percentage += 1; // Increment by 1%
+                if (percentage <= 99) { // Stop at 99% as 100% implies completion
+                    progressElement.textContent = percentage;
+                } else {
+                    clearInterval(interval); // Stop the interval
+                }
+            }, 0); // Update every 150ms (0.15 seconds) -> ~15 seconds to reach 99%
+        });
+
+        // JavaScript สำหรับ Custom File Input และ Image Preview
+        document.getElementById('fileUpload').addEventListener('change', function() {
+            const fileNameDisplay = document.getElementById('fileNameDisplay');
+            const imagePreview = document.getElementById('imagePreview');
+
+            if (this.files && this.files.length > 0) {
+                const file = this.files[0];
+                fileNameDisplay.textContent = file.name;
+                fileNameDisplay.classList.add('selected');
+
+                // Check if the selected file is an image
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imagePreview.src = e.target.result; // Set image source to data URL
+                        imagePreview.style.display = 'block'; // Show the image preview
+                    };
+                    reader.readAsDataURL(file); // Read the file as a data URL
+                } else {
+                    // If not an image, hide preview and reset src
+                    imagePreview.src = '#';
+                    imagePreview.style.display = 'none';
+                    fileNameDisplay.textContent = 'ไฟล์ที่เลือกไม่ใช่รูปภาพ';
+                    fileNameDisplay.classList.remove('selected');
+                }
+            } else {
+                // If no file is selected, reset everything
+                fileNameDisplay.textContent = 'ยังไม่มีไฟล์ที่เลือก';
+                fileNameDisplay.classList.remove('selected');
+                imagePreview.src = '#';
+                imagePreview.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CocoThickness Analyzer - หน้าหลัก</title>
+    <!-- ADDED: Favicon Links for better browser/device support -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/COCONUt THICKNET.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/COCONUt THICKNET.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/COCONUt THICKNET.png') }}">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="{{ url_for('home') }}" class="brand-link">
+                <img src="{{ url_for('static', filename='images/COCONUt THICKNET.png') }}" alt="Logo" class="navbar-logo">
+                CocoThickness Analyzer
+            </a>
+        </div>
+        <!-- Hamburger icon (for mobile) -->
+        <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </a>
+        <!-- Navigation links (Desktop View and Mobile Menu) -->
+        <div class="nav-links" id="myLinks">
+            <a href="{{ url_for('home') }}">หน้าหลัก</a>
+            <a href="{{ url_for('analyzer_app') }}">หาความหนาเนื้อมะพร้าว</a>
+            <a href="{{ url_for('about') }}">ที่มาและความสำคัญ</a>
+            <a href="{{ url_for('contact') }}">ติดต่อ</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ url_for('static', filename='images/Untitled design.png') }}') no-repeat center center; background-size: cover;">
+        <div class="hero-content">
+            <h1>ยินดีต้อนรับสู่ CocoThickness Analyzer</h1>
+            <p>นวัตกรรมเพื่อการประเมินความหนาของเนื้อมะพร้าวด้วย Image processing</p>
+            <a href="{{ url_for('analyzer_app') }}" class="btn-primary">เริ่มต้นวิเคราะห์เลย!</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="intro-section">
+            <h2>ทำไมต้อง CocoThickness Analyzer?</h2>
+            <p>ในอุตสาหกรรมมะพร้าว การประเมินความหนาของเนื้อเป็นสิ่งสำคัญในการคัดแยกคุณภาพและกำหนดราคา แต่กระบวนการเดิมที่ต้องผ่ามะพร้าวออกนั้นทำให้เกิดการสูญเสียและใช้เวลานาน</p>
+            <p>แอปพลิเคชันของเรานำเสนอโซลูชันที่ทันสมัยและไม่ทำลายผลผลิต ด้วยการใช้เทคโนโลยีประมวลผลภาพขั้นสูง เราสามารถวิเคราะห์ภาพถ่ายมะพร้าวเพื่อคำนวณความหนาของเนื้อได้อย่างรวดเร็วและแม่นยำ ช่วยลดต้นทุน เพิ่มประสิทธิภาพ และสร้างมูลค่าเพิ่มให้กับผลผลิตของคุณ</p>
+        </section>
+
+        <section class="features-section">
+            <h2>คุณสมบัติเด่น</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-camera fa-3x"></i>
+                    <h3>วิเคราะห์จากภาพถ่าย</h3>
+                    <p>เพียงอัปโหลดรูปภาพมะพร้าว ระบบจะประมวลผลให้คุณทันที</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-cogs fa-3x"></i>
+                    <h3>ประมวลผลอัจฉริยะ</h3>
+                    <p>ใช้เทคนิค image processing เพื่อความแม่นยำสูง</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-chart-line fa-3x"></i>
+                    <h3>ผลลัพธ์ที่แม่นยำ</h3>
+                    <p>รับข้อมูลความหนาเนื้อมะพร้าวที่มีความแม่นยำ</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-leaf fa-3x"></i>
+                    <h3>ไม่ทำลายผลผลิต</h3>
+                    <p>ช่วยลดการสูญเสียและรักษามูลค่าของมะพร้าว</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>พร้อมที่จะยกระดับการจัดการมะพร้าวของคุณแล้วหรือยัง?</h2>
+            <p>ลองใช้ CocoThickness Analyzer วันนี้ และสัมผัสประสบการณ์การวิเคราะห์ที่รวดเร็ว แม่นยำ และมีประสิทธิภาพ</p>
+            <a href="{{ url_for('analyzer_app') }}" class="btn-secondary">ไปที่หน้าแอปวิเคราะห์</a>
+        </section>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>เกี่ยวกับ CocoThickness Analyzer</h3>
+                <p>แอปพลิเคชันนวัตกรรมเพื่อประเมินความหนาของเนื้อมะพร้าวด้วยเทคโนโลยีประมวลผลภาพ ช่วยลดการสูญเสียและเพิ่มประสิทธิภาพในการคัดแยกผลผลิต</p>
+            </div>
+            <div class="footer-section links">
+                <h3>ลิงก์ด่วน</h3>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">หน้าหลัก</a></li>
+                    <li><a href="{{ url_for('analyzer_app') }}">หาความหนาเนื้อมะพร้าว</a></li>
+                    <li><a href="{{ url_for('about') }}">ที่มาและความสำคัญ</a></li>
+                    <li><a href="{{ url_for('contact') }}">ติดต่อเรา</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact-info-footer">
+                <h3>ติดต่อเรา</h3>
+                <p><i class="fas fa-envelope"></i> contact@coconuthickness.com</p>
+                <p><i class="fas fa-phone-alt"></i> +66 123 456 789</p>
+                <p><i class="fab fa-line"></i> @coconuthickness</p>
+                <div class="socials">
+                   <a href="https://www.instagram.com/instagram_user1" target="_blank"><i class="fab fa-instagram"></i></a>
+                   <a href="https://www.instagram.com/instagram_user2" target="_blank"><i class="fab fa-instagram"></i></a>
+                   <a href="https://www.instagram.com/instagram_user3" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; {% if now %}{{ now.year }}{% else %}2024{% endif %} CocoThickness Analyzer. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Hamburger Menu
+        function toggleMenu() {
+            var x = document.getElementById("myLinks");
+            x.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
