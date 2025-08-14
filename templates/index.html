@@ -34,32 +34,28 @@
     </nav>
 
     <div class="container">
-    <h1>หาความหนาเนื้อมะพร้าว</h1>
-    <form id="uploadForm" method="post" action="/upload" enctype="multipart/form-data">
-        <div class="file-input-wrapper">
-            <!-- ปุ่มถ่ายรูป -->
-            <button type="button" id="cameraBtn" class="custom-file-button camera-btn">📷 ถ่ายรูปด้วยกล้อง</button>
+        <h1>หาความหนาเนื้อมะพร้าว</h1>
+        <form id="uploadForm" method="post" action="/upload" enctype="multipart/form-data">
+            <!-- START Custom File Input -->
+            <div class="file-input-wrapper">
+                <input type="file" name="file" id="fileUpload" accept="image/*" required>
+                <button type="button" id="cameraBtn" class="custom-file-button camera-btn">📷 ถ่ายรูปด้วยกล้อง</button>
             <!-- ปุ่มเลือก Gallery -->
-            <button type="button" id="galleryBtn" class="custom-file-button gallery-btn">🖼️ เลือกจาก Gallery</button>
-
-            <span id="fileNameDisplay" class="file-name-display">ยังไม่มีไฟล์ที่เลือก</span>
-            <img id="imagePreview" class="image-preview" src="#" alt="Image Preview" style="display:none; max-width:200px; margin-top:10px;">
-
-            <!-- ใช้ input ตัวเดียว -->
-            <input type="file" id="fileInput" name="file" accept="image/*" style="display:none;">
-
-            <!-- ปุ่ม submit -->
+                <button type="button" id="galleryBtn" class="custom-file-button gallery-btn">🖼️ เลือกจาก Gallery</button>
+                <span id="fileNameDisplay" class="file-name-display">ยังไม่มีไฟล์ที่เลือก</span>
+                <img id="imagePreview" class="image-preview" src="#" alt="Image Preview">
+            </div>
+            <!-- END Custom File Input -->
+            
             <input type="submit" value="Upload and Analyze">
-        </div>
-    </form>
-</div>
-
+        </form>
 <script>
-const fileInput = document.getElementById('fileInput');
+const fileInput = document.getElementById('fileUpload');
 const cameraBtn = document.getElementById('cameraBtn');
 const galleryBtn = document.getElementById('galleryBtn');
 const fileNameDisplay = document.getElementById('fileNameDisplay');
 const imagePreview = document.getElementById('imagePreview');
+const form = document.getElementById('uploadForm');
 
 // ปุ่มกล้อง
 cameraBtn.addEventListener('click', () => {
@@ -84,8 +80,13 @@ fileInput.addEventListener('change', (event) => {
             imagePreview.style.display = 'block';
         };
         reader.readAsDataURL(file);
+    } else {
+        fileNameDisplay.textContent = "ยังไม่มีไฟล์ที่เลือก";
+        imagePreview.style.display = "none";
+        imagePreview.src = "#";
     }
 });
+
 </script>
 
         <!-- MODIFIED: Replaced loader -->
