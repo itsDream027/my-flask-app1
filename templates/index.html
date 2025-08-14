@@ -34,21 +34,59 @@
     </nav>
 
     <div class="container">
-        <h1>หาความหนาเนื้อมะพร้าว</h1>
-        <form id="uploadForm" method="post" action="/upload" enctype="multipart/form-data">
-            <!-- START Custom File Input -->
-            <div class="file-input-wrapper">
-                <input type="file" name="file" id="fileUpload" accept="image/*" required>
-                <label for="fileUpload" class="custom-file-button">
-                    <i class="fas fa-upload"></i> เลือกไฟล์รูปภาพ
-                </label>
-                <span id="fileNameDisplay" class="file-name-display">ยังไม่มีไฟล์ที่เลือก</span>
-                <img id="imagePreview" class="image-preview" src="#" alt="Image Preview">
-            </div>
-            <!-- END Custom File Input -->
+    <h1>หาความหนาเนื้อมะพร้าว</h1>
+    <form id="uploadForm" method="post" action="/upload" enctype="multipart/form-data">
+        <div class="file-input-wrapper">
+            <!-- ปุ่มถ่ายรูป -->
+            <button type="button" id="cameraBtn" class="custom-file-button camera-btn">📷 ถ่ายรูปด้วยกล้อง</button>
+            <!-- ปุ่มเลือก Gallery -->
+            <button type="button" id="galleryBtn" class="custom-file-button gallery-btn">🖼️ เลือกจาก Gallery</button>
 
+            <span id="fileNameDisplay" class="file-name-display">ยังไม่มีไฟล์ที่เลือก</span>
+            <img id="imagePreview" class="image-preview" src="#" alt="Image Preview" style="display:none; max-width:200px; margin-top:10px;">
+
+            <!-- ใช้ input ตัวเดียว -->
+            <input type="file" id="fileInput" name="file" accept="image/*" style="display:none;">
+
+            <!-- ปุ่ม submit -->
             <input type="submit" value="Upload and Analyze">
-        </form>
+        </div>
+    </form>
+</div>
+
+<script>
+const fileInput = document.getElementById('fileInput');
+const cameraBtn = document.getElementById('cameraBtn');
+const galleryBtn = document.getElementById('galleryBtn');
+const fileNameDisplay = document.getElementById('fileNameDisplay');
+const imagePreview = document.getElementById('imagePreview');
+
+// ปุ่มกล้อง
+cameraBtn.addEventListener('click', () => {
+    fileInput.setAttribute('capture', 'environment'); // เปิดกล้อง
+    fileInput.click();
+});
+
+// ปุ่ม Gallery
+galleryBtn.addEventListener('click', () => {
+    fileInput.removeAttribute('capture'); // Gallery ไม่ใช้ capture
+    fileInput.click();
+});
+
+// แสดงชื่อไฟล์และพรีวิว
+fileInput.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    if(file){
+        fileNameDisplay.textContent = file.name;
+        const reader = new FileReader();
+        reader.onload = function(e){
+            imagePreview.src = e.target.result;
+            imagePreview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    }
+});
+</script>
 
         <!-- MODIFIED: Replaced loader -->
         <div id="spinnerContainer" class="spinner-container">

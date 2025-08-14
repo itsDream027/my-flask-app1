@@ -27,9 +27,6 @@ body {
     border-bottom: 1px solid #e0e0e0; /* Thin border at the bottom */
 }
 
-.nav-brand {
-    /* Styles for the container of brand-link, handled by brand-link now */
-}
 
 .brand-link { /* New class for logo link and brand name */
     color: #343a40; /* Brand color, dark gray */
@@ -718,6 +715,10 @@ input[type="submit"]:hover {
     background-color: #ffffff;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Elegant shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* ปรับให้กรอบเล็กลงและจัดกลาง */
+    max-width: 400px;
+    margin: auto;
 }
 
 .image-display:hover {
@@ -726,7 +727,7 @@ input[type="submit"]:hover {
 }
 
 .image-display img {
-    max-width: 100%;
+    width: 100%; /* ปรับให้พอดีกับกรอบ */
     height: auto;
     border-radius: 10px; /* More rounded corners */
     margin-top: 20px;
