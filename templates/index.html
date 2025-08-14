@@ -39,55 +39,16 @@
             <!-- START Custom File Input -->
             <div class="file-input-wrapper">
                 <input type="file" name="file" id="fileUpload" accept="image/*" required>
-                <button type="button" id="cameraBtn" class="custom-file-button camera-btn">📷 ถ่ายรูปด้วยกล้อง</button>
-            <!-- ปุ่มเลือก Gallery -->
-                <button type="button" id="galleryBtn" class="custom-file-button gallery-btn">🖼️ เลือกจาก Gallery</button>
+                <label for="fileUpload" class="custom-file-button">
+                    <i class="fas fa-upload"></i> เลือกไฟล์รูปภาพ
+                </label>
                 <span id="fileNameDisplay" class="file-name-display">ยังไม่มีไฟล์ที่เลือก</span>
                 <img id="imagePreview" class="image-preview" src="#" alt="Image Preview">
             </div>
             <!-- END Custom File Input -->
-            
+
             <input type="submit" value="Upload and Analyze">
         </form>
-<script>
-const fileInput = document.getElementById('fileUpload');
-const cameraBtn = document.getElementById('cameraBtn');
-const galleryBtn = document.getElementById('galleryBtn');
-const fileNameDisplay = document.getElementById('fileNameDisplay');
-const imagePreview = document.getElementById('imagePreview');
-const form = document.getElementById('uploadForm');
-
-// ปุ่มกล้อง
-cameraBtn.addEventListener('click', () => {
-    fileInput.setAttribute('capture', 'environment'); // เปิดกล้อง
-    fileInput.click();
-});
-
-// ปุ่ม Gallery
-galleryBtn.addEventListener('click', () => {
-    fileInput.removeAttribute('capture'); // Gallery ไม่ใช้ capture
-    fileInput.click();
-});
-
-// แสดงชื่อไฟล์และพรีวิว
-fileInput.addEventListener('change', (event) => {
-    const file = event.target.files[0];
-    if(file){
-        fileNameDisplay.textContent = file.name;
-        const reader = new FileReader();
-        reader.onload = function(e){
-            imagePreview.src = e.target.result;
-            imagePreview.style.display = 'block';
-        };
-        reader.readAsDataURL(file);
-    } else {
-        fileNameDisplay.textContent = "ยังไม่มีไฟล์ที่เลือก";
-        imagePreview.style.display = "none";
-        imagePreview.src = "#";
-    }
-});
-
-</script>
 
         <!-- MODIFIED: Replaced loader -->
         <div id="spinnerContainer" class="spinner-container">
