@@ -132,6 +132,11 @@ def upload_file():
         upper_green = np.array([90, 255, 255])
         mask_green = cv2.inRange(hsv_full, lower_green, upper_green)
 
+        # --- ตรวจสอบว่ามีพื้นที่สีเขียวมากพอหรือไม่ ---
+        green_ratio = np.sum(mask_green > 0) / (mask_green.size)
+        if green_ratio < 0.03:  # น้อยกว่า 3% ของภาพทั้งหมด
+            return render_template('index.html', error_message="❌ ตรวจไม่พบมะพร้าว (ไม่พบพื้นที่สีเขียว)", now=datetime.now())
+
         # Define specific RGB colors for the edge/border (coconut shell)
         edge_rgbs = [
             (209, 188, 102), (203, 172, 90), (203, 184, 95), (135, 120, 37),

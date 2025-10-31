@@ -18,7 +18,7 @@
         <div class="nav-brand">
             <a href="{{ url_for('home') }}" class="brand-link">
                 <img src="{{ url_for('static', filename='images/COCONUt THICKNET.png') }}" alt="Logo" class="navbar-logo">
-                CocoThickness Analyzer
+                CocoMetric
             </a>
         </div>
         <!-- Hamburger icon (for mobile) -->
@@ -27,19 +27,19 @@
         </a>
         <!-- Navigation links (Desktop View and Mobile Menu) -->
         <div class="nav-links" id="myLinks">
-            <a href="{{ url_for('home') }}">หน้าหลัก</a>
-            <a href="{{ url_for('analyzer_app') }}">หาความหนาเนื้อมะพร้าว</a>
-            <a href="{{ url_for('about') }}">ที่มาและความสำคัญ</a>
-            <a href="{{ url_for('contact') }}">ติดต่อ</a>
+            <a href="{{ url_for('home') }}">main</a>
+            <a href="{{ url_for('analyzer_app') }}">analysis</a>
+            <a href="{{ url_for('about') }}">Background and Significance</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero-section" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ url_for('static', filename='images/Untitled design.png') }}') no-repeat center center; background-size: cover;">
         <div class="hero-content">
-            <h1>ยินดีต้อนรับสู่ CocoThickness Analyzer</h1>
-            <p>นวัตกรรมเพื่อการประเมินความหนาของเนื้อมะพร้าวด้วย Image processing</p>
-            <a href="{{ url_for('analyzer_app') }}" class="btn-primary">เริ่มต้นวิเคราะห์เลย!</a>
+            <h1>CocoMetric</h1>
+            <p>Innovation for Predicting Coconut Meat Thickness with Image processing</p>
+            <a href="{{ url_for('analyzer_app') }}" class="btn-primary">Start!</a>
         </div>
     </section>
 
@@ -76,11 +76,7 @@
             </div>
         </section>
 
-        <section class="cta-section">
-            <h2>พร้อมที่จะยกระดับการจัดการมะพร้าวของคุณแล้วหรือยัง?</h2>
-            <p>ลองใช้ CocoThickness Analyzer วันนี้ และสัมผัสประสบการณ์การวิเคราะห์ที่รวดเร็ว แม่นยำ และมีประสิทธิภาพ</p>
-            <a href="{{ url_for('analyzer_app') }}" class="btn-secondary">ไปที่หน้าแอปวิเคราะห์</a>
-        </section>
+   
     </div>
 
     <!-- Footer Section -->
