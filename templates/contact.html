@@ -16,23 +16,23 @@
             <!-- โลโก้และชื่อแบรนด์ที่คลิกได้ -->
             <a href="{{ url_for('home') }}" class="brand-link">
                 <img src="{{ url_for('static', filename='images/COCONUt THICKNET.png') }}" alt="Logo" class="navbar-logo">
-                CocoThickness Analyzer
+                CocoMetric
             </a>
         </div>
         <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
             <i class="fa fa-bars"></i>
         </a>
         <div class="nav-links" id="myLinks">
-            <a href="{{ url_for('home') }}">หน้าหลัก</a>
-            <a href="{{ url_for('analyzer_app') }}">หาความหนาเนื้อมะพร้าว</a>
-            <a href="{{ url_for('about') }}">ที่มาและความสำคัญ</a>
-            <a href="{{ url_for('contact') }}">ติดต่อ</a>
+            <a href="{{ url_for('home') }}">main</a>
+            <a href="{{ url_for('analyzer_app') }}">analysis</a>
+
+            <a href="{{ url_for('contact') }}">contact</a>
         </div>
     </nav>
 
     <div class="container">
-        <h1>ติดต่อเรา</h1>
-        <p>หากมีข้อสงสัย ข้อเสนอแนะ หรือต้องการสอบถามข้อมูลเพิ่มเติมเกี่ยวกับแอปพลิเคชันวิเคราะห์ความหนาของมะพร้าว สามารถติดต่อเราได้ตามช่องทางด้านล่างนี้:</p>
+        <h1>contact</h1>
+        <p>For any questions, feedback, or additional information about our coconut thickness analysis application, please feel free to contact us via the channels below.</p>
 
         <div class="contact-info">
             <div class="contact-item">
@@ -41,7 +41,7 @@
             </div>
             <div class="contact-item">
                 <i class="fas fa-phone-alt"></i>
-                <p>โทรศัพท์: <a href="tel:+66123456789">+66 61 626 7396</a></p>
+                <p>Tel: <a href="tel:+66123456789">+66 61 626 7396</a></p>
             </div>
             <div class="contact-item">
                 <i class="fab fa-line"></i>
@@ -63,27 +63,27 @@
             <!-- END Instagrams -->
         </div>
 
-        <p>เรายินดีให้บริการและตอบทุกคำถามของคุณ!</p>
+        <p>We’re always here to help and answer all your questions!!</p>
     </div>
 
     <!-- START Footer Section -->
-    <footer class="footer">
+     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section about">
-                <h3>เกี่ยวกับ CocoThickness Analyzer</h3>
-                <p>แอปพลิเคชันนวัตกรรมเพื่อประเมินความหนาของเนื้อมะพร้าวด้วยเทคโนโลยีประมวลผลภาพ ช่วยเพิ่มประสิทธิภาพในการคัดแยกผลผลิต</p>
+                <h3>about CocoMetric</h3>
+                <p>An innovative application that evaluates coconut meat thickness through advanced image processing technology, improving the efficiency of product grading and quality assessment.</p>
             </div>
             <div class="footer-section links">
-                <h3>ลิงก์ด่วน</h3>
+                <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="{{ url_for('home') }}">หน้าหลัก</a></li>
-                    <li><a href="{{ url_for('analyzer_app') }}">หาความหนาเนื้อมะพร้าว</a></li>
-                    <li><a href="{{ url_for('about') }}">ที่มาและความสำคัญ</a></li>
-                    <li><a href="{{ url_for('contact') }}">ติดต่อเรา</a></li>
+                    <li><a href="{{ url_for('home') }}">main</a></li>
+                    <li><a href="{{ url_for('analyzer_app') }}">analysis</a></li>
+
+                    <li><a href="{{ url_for('contact') }}">contact</a></li>
                 </ul>
             </div>
             <div class="footer-section contact-info-footer">
-                <h3>ติดต่อเรา</h3>
+                <h3>contact</h3>
                 <p><i class="fas fa-envelope"></i> 67pornchanok.hom@pccphet.ac.th</p>
                 <p><i class="fas fa-phone-alt"></i> +66 61 626 7396</p>
                 <p><i class="fab fa-line"></i> -</p>
@@ -95,7 +95,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; {{ now.year }} CocoThickness Analyzer. All rights reserved.
+            &copy; {{ now.year }} CocoMetric. All rights reserved.
         </div>
     </footer>
     <!-- END Footer Section -->

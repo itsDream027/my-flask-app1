@@ -24,7 +24,7 @@
         <div class="nav-links" id="myLinks">
             <a href="{{ url_for('home') }}">main</a>
             <a href="{{ url_for('analyzer_app') }}">analysis</a>
-            <a href="{{ url_for('about') }}">Background and Significance</a>
+
             <a href="{{ url_for('contact') }}">Contact</a>
         </div>
     </nav>
@@ -97,7 +97,7 @@
                 </div>
                 <div class="spoke"></div>
             </div>
-            <p class="processing-text">กำลังประมวลผลภาพมะพร้าว...</p>
+            <p class="processing-text">processing...</p>
             <p class="percentage-text"><span id="progressPercentage">0</span>%</p>
         </div>
         {% if error_message %}

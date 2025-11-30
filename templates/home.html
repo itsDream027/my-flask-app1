@@ -29,7 +29,6 @@
         <div class="nav-links" id="myLinks">
             <a href="{{ url_for('home') }}">main</a>
             <a href="{{ url_for('analyzer_app') }}">analysis</a>
-            <a href="{{ url_for('about') }}">Background and Significance</a>
             <a href="{{ url_for('contact') }}">Contact</a>
         </div>
     </nav>
@@ -45,33 +44,36 @@
 
     <div class="container">
         <section class="intro-section">
-            <h2>ทำไมต้อง CocoThickness Analyzer?</h2>
-            <p>ในอุตสาหกรรมมะพร้าว การประเมินความหนาของเนื้อเป็นสิ่งสำคัญในการคัดแยกคุณภาพและกำหนดราคา แต่กระบวนการเดิมที่ต้องใช้ความชำนาญบางครั้งอาจไม่แม่นยำมากพอ</p>
-            <p>แอปพลิเคชันของเรานำเสนอวิธีที่ทันสมัยและไม่ทำลายผลผลิต ด้วยการใช้เทคโนโลยีประมวลผลภาพขั้นสูง เราสามารถวิเคราะห์ภาพถ่ายมะพร้าวเพื่อคำนวณความหนาของเนื้อได้อย่างรวดเร็วและแม่นยำ ช่วยลดต้นทุน เพิ่มประสิทธิภาพ และสร้างมูลค่าเพิ่มให้กับผลผลิตของคุณ</p>
+            <h2>Why Cocometric?</h2>
+            <p>In the coconut industry, evaluating the thickness of the coconut meat is crucial for quality grading and pricing. However, the traditional method, which relies on expertise, can sometimes lack precision.
+
+            Our application introduces a modern, non-destructive approach using advanced image processing technology. By analyzing photos of coconuts, we can quickly and accurately calculate the thickness of the coconut meat — helping to reduce costs, increase efficiency, and add value to your products.
+            </p>
+          
         </section>
 
         <section class="features-section">
-            <h2>คุณสมบัติเด่น</h2>
+            <h2>Key Features</h2>
             <div class="feature-grid">
                 <div class="feature-item">
                     <i class="fas fa-camera fa-3x"></i>
-                    <h3>วิเคราะห์จากภาพถ่าย</h3>
-                    <p>เพียงอัปโหลดรูปภาพมะพร้าว ระบบจะประมวลผลให้คุณทันที</p>
+                    <h3>Analyze from photos.</h3>
+                    <p>Simply upload a coconut image, and the system will process it instantly.</p>
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-cogs fa-3x"></i>
-                    <h3>ประมวลผลอัจฉริยะ</h3>
-                    <p>ใช้เทคนิค image processing เพื่อความแม่นยำสูง</p>
+                    <h3>Smart Processing</h3>
+                    <p>Utilizing image processing techniques for high accuracy.</p>
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-chart-line fa-3x"></i>
-                    <h3>ผลลัพธ์ที่แม่นยำ</h3>
-                    <p>รับข้อมูลความหนาเนื้อมะพร้าวที่มีความแม่นยำ</p>
+                    <h3>Accurate Results</h3>
+                    <p>Get highly precise measurements of coconut meat thickness.</p>
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-leaf fa-3x"></i>
-                    <h3>ใช้เวลาไม่นาน</h3>
-                    <p>ใช้เวลาในการคำนวณไม่กี่วินาที</p>
+                    <h3>Fast and Efficient</h3>
+                    <p>Get results in just a few seconds.</p>
                 </div>
             </div>
         </section>
@@ -83,20 +85,20 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section about">
-                <h3>เกี่ยวกับ CocoThickness Analyzer</h3>
-                <p>แอปพลิเคชันนวัตกรรมเพื่อประเมินความหนาของเนื้อมะพร้าวด้วยเทคโนโลยีประมวลผลภาพ ช่วยเพิ่มประสิทธิภาพในการคัดแยกผลผลิต</p>
+                <h3>about CocoMetric</h3>
+                <p>An innovative application that evaluates coconut meat thickness through advanced image processing technology, improving the efficiency of product grading and quality assessment.</p>
             </div>
             <div class="footer-section links">
-                <h3>ลิงก์ด่วน</h3>
+                <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="{{ url_for('home') }}">หน้าหลัก</a></li>
-                    <li><a href="{{ url_for('analyzer_app') }}">หาความหนาเนื้อมะพร้าว</a></li>
-                    <li><a href="{{ url_for('about') }}">ที่มาและความสำคัญ</a></li>
-                    <li><a href="{{ url_for('contact') }}">ติดต่อเรา</a></li>
+                    <li><a href="{{ url_for('home') }}">main</a></li>
+                    <li><a href="{{ url_for('analyzer_app') }}">analysis</a></li>
+
+                    <li><a href="{{ url_for('contact') }}">contact</a></li>
                 </ul>
             </div>
             <div class="footer-section contact-info-footer">
-                <h3>ติดต่อเรา</h3>
+                <h3>contact</h3>
                 <p><i class="fas fa-envelope"></i> 67pornchanok.hom@pccphet.ac.th</p>
                 <p><i class="fas fa-phone-alt"></i> +66 61 626 7396</p>
                 <p><i class="fab fa-line"></i> -</p>
@@ -108,7 +110,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; {{ now.year }} CocoThickness Analyzer. All rights reserved.
+            &copy; {{ now.year }} CocoMetric. All rights reserved.
         </div>
     </footer>
     <!-- END Footer Section -->
